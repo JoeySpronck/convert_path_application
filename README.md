@@ -11,7 +11,7 @@ The `.pyw` application is a nice addition you can use to quickly convert a path 
 Adjust the `convert_path.py` file to your needs. This python file contains the (standalone) function that can be used in your projects, but is also used in the application. Change or add mappings according to your mounted drives. 
 
 ## Optionally build the app
-You can directly use/ make a shortcut to the `convert_path_application.pyw` file.The `.pyw` extension is basically `.py`. But with the additional 'w', launching the execuatble or `.pyw` doesnt launch an additional command line window because its in 'windowed' mode.
+You can directly use/ make a shortcut to the `convert_path_application.pyw` file. The `.pyw` extension is basically `.py`. But with the additional 'w', launching the execuatble or `.pyw` doesn't launch an additional command line window because its in 'windowed' mode.
 
 You can also make an executable out of it, with its own application icon etc.
 - `python -m pip install pyinstaller`
