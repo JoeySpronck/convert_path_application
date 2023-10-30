@@ -5,7 +5,7 @@ I use the function in all my projects, allowing me to work on both linux and win
 
 If you are on a linux system and you need a windows path for example, you can also specify this as follows: `convert_path(your_path, 'w')` with `'w'`/`'windows'` for windows; for unix paths use `"u"`/`"unix"`/`"l"`/`"linux"`/`"m"`/`"mac"`.
 
-The .pyw application is a nice addition you can use to quickly convert a path when you are not working in python. For example place a shortcut to it on your desktop. 
+The `.pyw` application is a nice addition you can use to quickly convert a path when you are not working in python. For example place a shortcut to it on your desktop. 
 
 ## Adjust to your needs
 Adjust the convert_path.py file to your needs. This python file contains the (standalone) function that can be used in your projects, but is also used in the application. Change or add mappings according to your mounted drives. 
