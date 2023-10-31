@@ -1,11 +1,11 @@
 # Simple convert path application
-A simple application (`.pyw` file) and standalone function (in the `.py` file) that easily converts paths accroding to a adjustable mapping. 
+A simple applications (`.pyw` files) and standalone function (in the `.py` file) that easily converts paths accroding to a adjustable mapping. 
 
 I use the function in all my projects, allowing me to work on both linux and windows systsms without needing to change the paths all the time. The `current_os` variable makes sure that `convert_path(your_path)` will always return the path that corresponds to the system you are currently running your code in. 
 
 If you are on a linux system and you need a windows path for example, you can also specify this as follows: `convert_path(your_path, 'w')` with `'w'`/`'windows'` for windows; for unix paths use `"u"`/`"unix"`/`"l"`/`"linux"`/`"m"`/`"mac"`.
 
-The `.pyw` application is a nice addition you can use to quickly convert a path when you are not working in python. For example place a shortcut to it on your desktop. 
+The `.pyw` applications are a nice addition you can use to quickly convert a path when you are not working in python. For example place a shortcut to it on your desktop. I'm not sure if the one with the 'open folder' feature works on non-windows systems. 
 
 ## Adjust to your needs
 Adjust the `convert_path.py` file to your needs. This python file contains the (standalone) function that can be used in your projects, but is also used in the application. Change or add mappings according to your mounted drives. 
