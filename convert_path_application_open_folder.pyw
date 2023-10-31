@@ -16,6 +16,8 @@ def convert_button_clicked(*args):
     output_text.delete(1.0, tk.END)  # Clear previous content
     output_text.insert(tk.END, converted_text)
     update_path_info()
+    update_copy_button_state()  # Check and update the "Copy" button state
+
 
 # Event handler for the "Copy" button
 def copy_button_clicked():
@@ -23,6 +25,14 @@ def copy_button_clicked():
     app.clipboard_clear()
     app.clipboard_append(converted_text)
     app.update()
+    update_copy_button_state()  # Check and update the button state
+
+# Update the "Copy" button's state
+def update_copy_button_state():
+    if output_text.get(1.0, tk.END).strip():  # Check if there is text to be copied
+        copy_button["state"] = "active"  # Enable the button
+    else:
+        copy_button["state"] = "disabled"  # Disable the button
 
 # "Open folder" button clicked
 def open_folder_button_clicked():
@@ -45,14 +55,14 @@ def update_path_info():
     converted_path = convert_path(converted_path, current_os)
 
     if os.path.isfile(converted_path):
-        path_info.set("This input/output path is a file. Click 'Open folder' to open its directory.")
+        path_info.set("This input/output path is a known file. Click 'Open folder' to open its directory.")
         open_folder_button["state"] = "active"  # Enable the button
     elif os.path.isdir(converted_path):
-        path_info.set("This input/output path is a folder. Click 'Open folder' to open it.")
+        path_info.set("This input/output path is a known folder. Click 'Open folder' to open it.")
         open_folder_button["state"] = "active"  # Enable the button
     else:
-        path_info.set("This path is not a file or folder.")
-        open_folder_button["state"] = "disabled"  # Disable the button
+        path_info.set("This input/output path is not a known file or folder.")
+        open_folder_button["state"] = "disabled"  # Disable the "Open folder" button
 
 # Create the main application window
 app = tk.Tk()
@@ -91,11 +101,11 @@ output_text = Text(app, height=1, width=100, font=default_font)  # Set the width
 output_text.grid(row=6, column=0, columnspan=3)  # Centered and spanning 3 columns
 
 # "Copy" Button
-copy_button = Button(app, text="Copy", command=copy_button_clicked, font=default_font)  # Set the font
+copy_button = Button(app, text="Copy", command=copy_button_clicked, font=default_font, state="disabled")  # Set the font
 copy_button.grid(row=7, column=0, pady=5, sticky="e", padx=5)  # Right-aligned
 
-# "Open folder" Button
-open_folder_button = Button(app, text="Open folder", command=open_folder_button_clicked, font=default_font)
+# "Open folder" Button (Initially disabled)
+open_folder_button = Button(app, text="Open folder", command=open_folder_button_clicked, font=default_font, state="disabled")  # Set the font and state
 open_folder_button.grid(row=7, column=1, pady=5, sticky="w", padx=5)  # Left-aligned
 
 # Label to display path information
