@@ -11,6 +11,8 @@ def platform_selection_changed():
 # Event handler for the "Convert" button
 def convert_button_clicked(*args):
     input_text = input_entry.get().strip()  # Remove quotes from the input
+    # Remove single and double quotes from the input
+    input_text = input_text.replace("'", "").replace('"', '')
     to_platform = platform_var.get()  # Get the selected platform
     converted_text = convert_path(input_text, "w" if to_platform == 0 else "l")
     output_text.delete(1.0, tk.END)  # Clear previous content
